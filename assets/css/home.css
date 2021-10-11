@@ -35,11 +35,12 @@ input {
   margin-left: 10px;
 }
 
-.form-select:focus {
+.form-select:focus,
+.btn:focus {
   outline: none;
   box-shadow: none;
 }
-.form-select{
+.form-select {
   border: hidden;
   background-color: whitesmoke;
 }
@@ -50,17 +51,9 @@ input {
   text-align: right;
   margin-right: 30px;
 }
-.add .btn {
-  background-color: rgb(24, 23, 23);
-  color: white;
-}
-.del .btn {
-  background-color: red;
-  color: white;
-}
 
-.btnn{
-  padding:20px 20px;
+.btnn {
+  padding: 20px 20px;
   border-top: 1px solid gray;
   border-bottom: 1px solid gray;
   max-width: 1000px;
