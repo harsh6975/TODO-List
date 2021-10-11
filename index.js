@@ -5,8 +5,8 @@ const app = express();
 const port = 3000;
 
 //setting view engine
-app.use('view engine','ejs');
-app.use('views','./views');
+app.set('view engine','ejs');
+app.set('views','./views');
 
 //aloowing assests folder
 app.use(express.static('./assets'));
