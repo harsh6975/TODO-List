@@ -17,7 +17,7 @@
 
 <body>
   <div class="container">
-    <form action="/create-task" method="POST">
+    <form action="/create-task" method="POST" id="main">
       <h1>TODO LIST</h1>
       <div class="des">
         <h3>Description</h3>
@@ -38,9 +38,12 @@
           >
             <option selected>Choose a catogery</option>
             <option value="Personal">Personal</option>
+            <option value="Contest">Contest</option>
+            <option value="Coding">Coding</option>
+            <option value="Work">Work</option>
+            <option value="Cleaning">Cleaning</option>
             <option value="Work">Work</option>
             <option value="School">School</option>
-            <option value="Cleaning">Cleaning</option>
             <option value="Other">Other</option>
           </select>
         </div>
@@ -49,61 +52,9 @@
           <input type="date" class="no-outline" name="date" />
         </div>
       </div>
-      <div class="row btnn">
-        <div class="col add">
-          <a href="/delete-task">
-            <button class="btn btn-success">
-              <i class="fas fa-plus"></i> ADD TASK
-            </button>
-          </a>
-        </div>
-        <div class="col del">
-          <button class="btn btn-danger" type="submit">
-            <i class="fas fa-trash-alt"></i> DELETE TASK
-          </button>
-        </div>
-      </div>
     </form>
-    <section>
-      <form action="">
-        <% for(let task of tasklist){%>
-        <div class="row">
-          <div class="col-1">
-            <input
-              type="checkbox"
-              class="checkbox"
-              name="checkbox"
-              id="<%=task.id%>"
-            />
-          </div>
-          <div class="col-9">
-            <label for="checkbox" class="checkbox_label">
-              <% if((task.description).length==0){ %> No Description <%}else{%>
-              <%=task.description%> <%}%>
-            </label>
-            <div class="row">
-              <div class="col-1">
-                <i class="fas fa-calendar-alt"></i>
-              </div>
-              <div class="col">
-                <p class="task_date">
-                  <% if((task.date).length==0){ %> No Due Date <%}else{%>
-                  <%=task.date%> <%}%>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <% if(task.catogery!="Choose a catogery"){%>
-            <div class="catogery"><%=task.catogery%></div>
-            <%} %>
-          </div>
-        </div>
-
-        <%}%>
-      </form>
-    </section>
+    <%-include('_button')%>
+    <%-include('_task')%>
   </div>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

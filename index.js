@@ -8,7 +8,7 @@ const port = 3000;
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
-//aloowing assests folder
+//allowing assests folder
 app.use(express.static("./assets"));
 app.use(express.urlencoded());
 
