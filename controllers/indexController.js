@@ -1,16 +1,18 @@
 const Task = require("../models/todoSchema");
 
+//controller for rendering home page
 module.exports.home = function (req, res) {
   Task.find({}, (err, tasklist) => {
     if (err) {
       console.log("error in home render");
-    }   
+    }
     return res.render("home", {
       tasklist: tasklist,
     });
   });
 };
 
+//controller for creating the task
 module.exports.create = function (req, res) {
   //console.log(req.body);
   console.log(req.body);
@@ -32,6 +34,24 @@ module.exports.create = function (req, res) {
         return res.redirect("back");
       });
     }
+  });
+  return;
+};
+
+//controller for deleting the task
+module.exports.delete = function (req, res) {
+  let ids = new Array();
+  for (let id in req.query) {
+    ids.push(req.query[id]);
+  }
+  Task.deleteMany({ _id: { $in: ids } }, function (error) {
+    if (error) {
+      /* on error */
+      console.log("Unable to delete from the database.");
+      return;
+    }
+    /* if no error */
+    return res.redirect("back");
   });
   return;
 };
