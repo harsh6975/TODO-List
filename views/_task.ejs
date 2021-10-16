@@ -1,7 +1,7 @@
 <section id="Newtask">
   <form action="/delete-task" method="GET">
     <% for(let task of tasklist){%>
-    <div class="row">
+    <div class="row task">
       <div class="col-1">
         <input type="checkbox" class="checkbox" id="<%=task.id%>" />
       </div>
